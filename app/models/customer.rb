@@ -1,5 +1,5 @@
 class Customer < ApplicationRecord
   def full_name
-    "Sra. #{name}"
+    "Sr. #{name}"
   end
 end
