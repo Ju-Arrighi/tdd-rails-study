@@ -15,4 +15,9 @@ RSpec.describe Customer, type: :model do
   end
 
   it { expect{ create(:customer) }.to change{ Customer.all.size }.by(1) }
+
+  it '#herança' do
+    customer = create(:customer_vip)
+    expect(customer.vip).to eq(true)
+  end
 end
