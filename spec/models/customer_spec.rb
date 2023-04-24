@@ -20,4 +20,10 @@ RSpec.describe Customer, type: :model do
     customer = create(:customer_vip)
     expect(customer.vip).to eq(true)
   end
+
+  it 'attributes_for' do
+    attrs = attributes_for(:customer)
+    customer = Customer.create(attrs)
+    expect(customer.full_name).to start_with('Sr.')
+  end
 end
