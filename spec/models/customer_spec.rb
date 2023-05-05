@@ -32,13 +32,15 @@ RSpec.describe Customer, type: :model do
     expect(customer.name.upcase).to eq(customer.name)
   end
 
-  it 'customer female' do
-    customer = create(:customer, :vip, :female)
+  it 'customer female vip' do
+    customer = create(:customer_vip_female)
     expect(customer.gender).to eq('F')
+    expect(customer.vip).to eq(true)
   end
 
   it 'customer male' do
-    customer = create(:customer, :default, :male)
+    customer = create(:customer_default_male)
     expect(customer.gender).to eq('M')
+    expect(customer.vip).to eq(false)
   end
 end

@@ -25,6 +25,13 @@ FactoryBot.define do
       gender { 'M' }
     end
 
+    factory :customer_female, traits: [:female]
+    factory :customer_male, traits: [:male]
+    factory :customer_default_female, traits: [:female, :default]
+    factory :customer_default_male, traits: [:male, :default]
+    factory :customer_vip_female, traits: [:female, :vip]
+    factory :customer_vip_male, traits: [:male, :vip]
+
     after(:create) do | customer, evaluator |
       customer.name.upcase! if evaluator.upcased
     end
