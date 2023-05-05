@@ -12,6 +12,12 @@ RSpec.describe Order, type: :model do
     expect(orders.count).to eq(5)
   end
 
+  it 'create_pair - 2 orders' do
+    orders = create_pair(:order)
+    puts orders.inspect
+    expect(orders.count).to eq(2)
+  end
+
   it 'has_many' do
     # customer = create(:customer, :with_order, qtt_order: 5)
     customer = create(:customer_with_order)
