@@ -2,6 +2,7 @@ FactoryBot.define do
   factory :customer, aliases: [:user] do
     transient do
       upcased { false }
+      qtt_order { 3 }
     end
 
     name { Faker::Name.name }
@@ -27,6 +28,13 @@ FactoryBot.define do
       gender { 'M' }
     end
 
+    trait :with_order do
+      after(:create) do | customer, evaluator |
+        create_list(:order, evaluator.qtt_order, customer: customer)
+      end
+    end
+
+    factory :customer_with_order, traits: [:with_order]
     factory :customer_female, traits: [:female]
     factory :customer_male, traits: [:male]
     factory :customer_default_female, traits: [:female, :default]
