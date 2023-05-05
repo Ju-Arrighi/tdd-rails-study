@@ -17,7 +17,7 @@ RSpec.describe Customer, type: :model do
   it { expect{ create(:customer) }.to change{ Customer.all.size }.by(1) }
 
   it '#herança' do
-    customer = create(:customer_vip)
+    customer = create(:customer, :vip)
     expect(customer.vip).to eq(true)
   end
 
@@ -28,17 +28,17 @@ RSpec.describe Customer, type: :model do
   end
 
   it 'transient attributes' do
-    customer = create(:customer_default, upcased: true)
+    customer = create(:customer, :default, upcased: true)
     expect(customer.name.upcase).to eq(customer.name)
   end
 
   it 'customer female' do
-    customer = create(:customer_female)
+    customer = create(:customer, :vip, :female)
     expect(customer.gender).to eq('F')
   end
 
   it 'customer male' do
-    customer = create(:customer_male)
+    customer = create(:customer, :default, :male)
     expect(customer.gender).to eq('M')
   end
 end
