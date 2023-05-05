@@ -6,7 +6,10 @@ RSpec.describe Customer, type: :model do
   # customer = customers(:juliana)
   it '#full_name - sobrescrevendo atributo' do
     customer = create(:customer, name: 'Juliana Arrighi')
+    customer1 = create(:customer, name: 'Juliana Arrighi')
     expect(customer.full_name).to eq('Sr. Juliana Arrighi')
+    puts customer.email
+    puts customer1.email
   end
 
   it '#full_name' do
