@@ -4,5 +4,4 @@ FactoryBot.define do
     # association :customer, factory: customer (subcrever)
     customer
   end
-
 end
