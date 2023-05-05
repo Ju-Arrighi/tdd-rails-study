@@ -17,6 +17,14 @@ FactoryBot.define do
       days_to_pay { 30 }
     end
 
+    factory :customer_female do
+      gender { 'F' }
+    end
+
+    factory :customer_male do
+      gender { 'M' }
+    end
+
     after(:create) do | customer, evaluator |
       customer.name.upcase! if evaluator.upcased
     end

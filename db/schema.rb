@@ -14,6 +14,7 @@ ActiveRecord::Schema[7.0].define(version: 2023_03_24_145003) do
   create_table "customers", force: :cascade do |t|
     t.string "name"
     t.string "email"
+    t.string "gender"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.boolean "vip"
