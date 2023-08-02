@@ -31,6 +31,12 @@ RSpec.describe "/customers", type: :request do
       get customers_url
       expect(response).to be_successful
     end
+
+    it "renders a successful response - http status method" do
+      # Customer.create! valid_attributes
+      get customers_url
+      expect(response).to have_http_status(200)
+    end
   end
 
   describe "GET /show" do
