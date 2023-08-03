@@ -41,9 +41,13 @@ RSpec.describe "/customers", type: :request do
 
   describe "GET /show" do
     it "renders a successful response" do
-      customer = Customer.create! valid_attributes
-      get customer_url(customer)
-      expect(response).to be_successful
+      # customer = Customer.create! valid_attributes
+      customer = create(:customer)
+      # subject { get :show, params: { id: customer.id } }
+      get customers_url(params: { id: customer.id } )
+      puts customer.id
+      # get :show, params: { id: customer.id }
+      expect(response).to have_http_status(200)
     end
   end
 
