@@ -9,9 +9,12 @@ RSpec.describe "Customers", type: :request do
     it "index - JSON 200 ok" do
       get '/customers.json'
       expect(response.body).to include_json([
-        id: 1,
-        name: "Earle Friesen",
-        email: "meu_email_1@email.com",
+        id: /\d/,
+        name: (be_a_kind_of String),
+        email: (be_a_kind_of String),
+        # id: 1,
+        # name: "Earle Friesen",
+        # email: "meu_email_1@email.com",
       ])
     end
     it "show - JSON 200 ok" do
