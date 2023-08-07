@@ -47,10 +47,17 @@ RSpec.describe CustomersController, type: :controller do
     it 'should login valid attributes' do
       customer_params = attributes_for(:customer)
       sign_in @member
-      p customer_params
       expect {
         post :create, params: { customer: customer_params }
       }.to change(Customer, :count).by(1)
+    end
+
+    it 'verifies flash notice' do
+      customer_params = attributes_for(:customer)
+      sign_in @member
+      post :create, params: { customer: customer_params }
+      expect(flash[:notice]).to match(//)
+      p response.inspect
     end
   end
 end
