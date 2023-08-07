@@ -59,5 +59,12 @@ RSpec.describe CustomersController, type: :controller do
       expect(flash[:notice]).to match(//)
       p response.inspect
     end
+
+     it 'content-type' do
+      # customer_params = attributes_for(:customer)
+      sign_in @member
+      get :show, format: :json, params: { id: @customer.id }
+      expect(response.content_type).to have_content('application/json')
+    end
   end
 end
