@@ -62,6 +62,7 @@ group :development, :test do
   gem 'selenium-webdriver'
   gem 'webdrivers', '~> 5.0', require: false
   gem 'rspec-json_expectations'
+  gem 'rails-controller-testing'
 end
 
 group :development do
