@@ -69,8 +69,10 @@ RSpec.describe CustomersController, type: :controller do
   end
   describe 'Routing', type: :routing do
       it do
-        should route(:get, '/customers', port: 12345).
-        to('customers#index')
+        # should route(:get, '/customers', port: 12345).
+        #   to('customers#index')
+        is_expected.to route(:get, '/customers', port: 12345).
+          to('customers#index')
       end
     end
 end
