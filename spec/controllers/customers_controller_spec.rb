@@ -67,4 +67,10 @@ RSpec.describe CustomersController, type: :controller do
       expect(response.content_type).to have_content('application/json')
     end
   end
+  describe 'Routing', type: :routing do
+      it do
+        should route(:get, '/customers', port: 12345).
+        to('customers#index')
+      end
+    end
 end
